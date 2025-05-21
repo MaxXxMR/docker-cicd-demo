@@ -1,0 +1,13 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Клонирование репозитория
+      uses: actions/checkout@v3
+
+    - name: Сборка Docker-образа
+      run: docker build -t my-mini-project .
